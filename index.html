@@ -108,15 +108,15 @@
 <header>
   <div class="logo">Habity</div>
   <nav>
-    <a href="register/login.html">Iniciar sesión</a>
-    <a href="register/register.html">Crear cuenta</a>
+    <a class="login-link">Iniciar sesión</a>
+    <a class="register-link">Crear cuenta</a>
   </nav>
 </header>
 
 <section id="hero">
   <h1>Domina tu semana, un hábito a la vez.</h1>
   <h2>Crea microhábitos, gana XP y haz que el progreso sea parte de tu día.</h2>
-  <a href="register/login.html" class="btn-primary">Empieza gratis</a>
+  <a class="btn-primary register-link">Empieza gratis</a>
 </section>
 
 <section id="como-funciona">
@@ -162,13 +162,27 @@
 <section id="motivation">
   <h2>No se trata de ser perfecto. Se trata de mejorar cada semana.</h2>
   <div class="cta-final">
-    <a href="register/register.html" class="btn-primary">Crear mi cuenta gratis</a>
+    <a class="btn-primary register-link">Crear mi cuenta gratis</a>
   </div>
 </section>
 
 <footer>
   &copy; 2025 Habity. Todos los derechos reservados.
 </footer>
+
+<script>
+  const isLocal = location.hostname === "127.0.0.1" || location.hostname === "localhost";
+  const base = isLocal ? "../habity-webapp" : "https://habity-webapp.vercel.app";
+
+  [...document.getElementsByClassName("login-link")].forEach(element => {
+    element.href = `${base}/register/login.html`;
+  });
+
+  [...document.getElementsByClassName("register-link")].forEach(element => {
+    element.href = `${base}/register/register.html`;
+  });
+
+</script>
 
 </body>
 </html>
